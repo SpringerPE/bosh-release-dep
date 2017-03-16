@@ -4,7 +4,7 @@
 Simple tool written in go to print a graphviz compatible dot file describing the dependencies between jobs and packages in a boshrelease
 
 ## Installation
-github.com/SpringerPE/bosh-release-dep
+go get github.com/SpringerPE/bosh-release-dep
 
 ## Usage
 ```
