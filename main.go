@@ -68,9 +68,9 @@ func main() {
 			if err != nil {
 				log.Fatalf("error: %v", err)
 			}
-			graph.AddNode("Deps", quote(pkg.Name()), map[string]string{"type": "package"})
+			graph.AddNode("Deps", quote(pkg.Name()), map[string]string{"type": "package", "color": "green"})
 			for _, dep := range spec.Packages {
-				graph.AddNode("Deps", quote(dep), map[string]string{"type": "package"})
+				graph.AddNode("Deps", quote(dep), map[string]string{"type": "package", "color": "green"})
 				graph.AddEdge(quote(pkg.Name()), quote(dep), true, nil)
 			}
 		}
@@ -90,9 +90,9 @@ func main() {
 			}
 
 			jobName := quote(job.Name() + "_job")
-			graph.AddNode("Deps", jobName, map[string]string{"type": "job"})
+			graph.AddNode("Deps", jobName, map[string]string{"type": "job", "color": "red"})
 			for _, pkg := range spec.Packages {
-				graph.AddNode("Deps", quote(pkg), map[string]string{"type": "package"})
+				graph.AddNode("Deps", quote(pkg), map[string]string{"type": "package", "color": "green"})
 				graph.AddEdge(jobName, quote(pkg), true, nil)
 			}
 		}
